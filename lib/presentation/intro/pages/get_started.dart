@@ -42,8 +42,8 @@ class GetStartedPage extends StatelessWidget {
                     AppVectors.logo,
                   ),
                 ),
-                Spacer(),
-                Text(
+                const Spacer(),
+                const Text(
                   'Enjoy Listening To Music',
                   style: TextStyle(
                     color: Colors.white,
@@ -52,7 +52,7 @@ class GetStartedPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 21),
-                Text(
+                const Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis enim purus sed phasellus. Cursus ornare id scelerisque aliquam.',
                   style: TextStyle(
                     color: AppColors.grey,

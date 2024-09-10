@@ -17,7 +17,7 @@ class SignupOrSigininPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          BasicAppbar(),
+          const BasicAppbar(),
           Align(
             alignment: Alignment.topRight,
             child: SvgPicture.asset(AppVectors.topPattern),
@@ -42,20 +42,20 @@ class SignupOrSigininPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(AppVectors.logo),
-                  SizedBox(
+                  const SizedBox(
                     height: 55,
                   ),
-                  Text(
+                  const Text(
                     'Enjoy listening to music',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 21,
                   ),
-                  Text(
+                  const Text(
                     'Spotify is a proprietary Swedish audio streaming and media services provider ',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
@@ -64,7 +64,7 @@ class SignupOrSigininPage extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
@@ -77,13 +77,13 @@ class SignupOrSigininPage extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      SigunPage(),
+                                      const SigunPage(),
                                 ),
                               );
                             },
                             title: 'Register'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Expanded(
@@ -93,7 +93,8 @@ class SignupOrSigininPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (BuildContext context) => SigninPage(),
+                                builder: (BuildContext context) =>
+                                    const SigninPage(),
                               ),
                             );
                           },

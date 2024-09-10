@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1081236574630",
+    "project_id": "spotify-kamal",
+    "storage_bucket": "spotify-kamal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081236574630:android:ecdf8c9544c802200cbf67",
+        "android_client_info": {
+          "package_name": "com.spotify.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQsy6CEf_GmMIWD3HmmI8RcpYOC2JHf2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

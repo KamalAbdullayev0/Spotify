@@ -45,8 +45,8 @@ class ChooseModePage extends StatelessWidget {
                     AppVectors.logo,
                   ),
                 ),
-                Spacer(),
-                Text(
+                const Spacer(),
+                const Text(
                   'Choose mode',
                   style: TextStyle(
                     color: Colors.white,
@@ -73,7 +73,8 @@ class ChooseModePage extends StatelessWidget {
                                 height: 80,
                                 width: 80,
                                 decoration: BoxDecoration(
-                                  color: Color(0xff30393C).withOpacity(0.5),
+                                  color:
+                                      const Color(0xff30393C).withOpacity(0.5),
                                   shape: BoxShape.circle,
                                 ),
                                 child: SvgPicture.asset(
@@ -84,8 +85,8 @@ class ChooseModePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 15),
-                        Text(
+                        const SizedBox(height: 15),
+                        const Text(
                           'Dark Mode',
                           style: TextStyle(
                             color: AppColors.grey,
@@ -111,7 +112,8 @@ class ChooseModePage extends StatelessWidget {
                                 height: 80,
                                 width: 80,
                                 decoration: BoxDecoration(
-                                  color: Color(0xff30393C).withOpacity(0.5),
+                                  color:
+                                      const Color(0xff30393C).withOpacity(0.5),
                                   shape: BoxShape.circle,
                                 ),
                                 child: SvgPicture.asset(
@@ -122,8 +124,8 @@ class ChooseModePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 15),
-                        Text(
+                        const SizedBox(height: 15),
+                        const Text(
                           'Light Mode',
                           style: TextStyle(
                             color: AppColors.grey,
