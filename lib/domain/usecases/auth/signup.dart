@@ -1,10 +1,12 @@
-class SignupUseCase implements UseCase<void, CreateUserReq> {
-  final AuthRepository _authRepository;
+import 'package:dartz/dartz.dart';
+import 'package:spotify/core/usecase/usecase.dart';
+import 'package:spotify/data/models/auth/create_user_req..dart';
+import 'package:spotify/domain/repository/auth/auth.dart';
+import 'package:spotify/service_locator.dart';
 
-  SignupUseCase(this._authRepository);
-
+class SignupUseCase implements UseCase<Either, CreateUserReq> {
   @override
-  Future<void> call(CreateUserReq createUserReq) {
-    return _authRepository.signup(createUserReq);
+  Future<Either> call({CreateUserReq? params}) async {
+    return sl<AuthRepository>().signup(params!);
   }
 }
