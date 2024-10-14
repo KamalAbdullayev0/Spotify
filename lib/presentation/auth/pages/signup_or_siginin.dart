@@ -24,11 +24,11 @@ class SignupOrSigininPage extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomRight,
-            child: SvgPicture.asset(AppVectors.bottom_Pattern),
+            child: SvgPicture.asset(AppVectors.bottomPattern),
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: Image.asset(AppImages.auth_BG),
+            child: Image.asset(AppImages.authBG),
           ),
           Align(
             alignment: Alignment.center,
