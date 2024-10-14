@@ -10,7 +10,7 @@ class NewsSongsCubit extends Cubit<NewsSongsState> {
     var returnedSongs = await sl<GetNewsSongsUseCase>().call();
     returnedSongs.fold(
       (l) => emit(NewsSongsLoadFailure()),
-      (data) => emit(NewsSongsLoaded(songs: data)),
+      (data) => emit(NewsSongSuccess(songs: data)),
     );
   }
 }

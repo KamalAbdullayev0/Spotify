@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spotify/core/configs/constants/app_urls.dart';
 import 'package:spotify/domain/entities/song/song.dart';
 import 'package:spotify/presentation/home/bloc/news_songs_cubit.dart';
 import 'package:spotify/presentation/home/bloc/news_songs_state.dart';
@@ -21,7 +22,7 @@ class NewsSongs extends StatelessWidget {
                 child: const CircularProgressIndicator(),
               );
             }
-            if (state is NewsSongsLoaded) {
+            if (state is NewsSongSuccess) {
               return _songs(state.songs);
             }
 
@@ -37,11 +38,31 @@ class NewsSongs extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return Column(
-          children: [
-            Text('Song name'),
-            Text('Artist name'),
-          ],
+        return SizedBox(
+          width: 160,
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  height: 160,
+                  width: 160,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(AppUrls.firestorage +
+                          songs[index].artist +
+                          ' - ' +
+                          songs[index].title +
+                          '.jpg?' +
+                          AppUrls.mediaAlt),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
         );
       },
       separatorBuilder: (context, index) {
