@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/constants/app_urls.dart';
 import 'package:spotify/domain/entities/song/song.dart';
 import 'package:spotify/presentation/home/bloc/news_songs_cubit.dart';
@@ -26,7 +27,9 @@ class NewsSongs extends StatelessWidget {
               return _songs(state.songs);
             }
 
-            return Container();
+            return Container(
+              color: Colors.red,
+            );
           },
         ),
       ),
@@ -39,23 +42,20 @@ class NewsSongs extends StatelessWidget {
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return SizedBox(
-          width: 160,
+          width: 100,
           child: Column(
             children: [
               Expanded(
                 child: Container(
-                  height: 160,
-                  width: 160,
+                  height: 100,
+                  width: 100,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(AppUrls.firestorage +
-                          songs[index].artist +
-                          ' - ' +
-                          songs[index].title +
-                          '.jpg?' +
-                          AppUrls.mediaAlt),
+                      image: NetworkImage(
+                        '${AppUrls.fireStorage}${songs[index].artist} - ${songs[index].title}.jpg?${AppUrls.mediaAlt}',
+                      ),
                     ),
                   ),
                 ),
