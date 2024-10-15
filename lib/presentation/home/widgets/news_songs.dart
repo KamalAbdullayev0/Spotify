@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/constants/app_urls.dart';
 import 'package:spotify/domain/entities/song/song.dart';
 import 'package:spotify/presentation/home/bloc/news_songs_cubit.dart';
