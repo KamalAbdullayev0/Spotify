@@ -26,6 +26,7 @@ class SigninPage extends StatelessWidget {
           vertical: 30,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _registerText(),
             const SizedBox(height: 50),
@@ -59,7 +60,6 @@ class SigninPage extends StatelessWidget {
                   );
                 },
                 title: 'Sign In'),
-            const Spacer(),
             _signup(context),
           ],
         ),

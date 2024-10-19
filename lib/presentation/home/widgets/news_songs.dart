@@ -48,7 +48,9 @@ class NewsSongs extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => SongPlayerPage(),
+                builder: (BuildContext context) => SongPlayerPage(
+                  songEntity: songs[index],
+                ),
               ),
             );
           },
@@ -64,7 +66,7 @@ class NewsSongs extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                          '${AppUrls.fireStorage}${songs[index].artist} - ${songs[index].title}.jpg?${AppUrls.mediaAlt}',
+                          '${AppUrls.coverFireStorage}${songs[index].artist} - ${songs[index].title}.jpg?${AppUrls.mediaAlt}',
                         ),
                       ),
                     ),
