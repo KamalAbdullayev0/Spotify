@@ -4,9 +4,10 @@ import 'package:spotify/domain/usecases/song/add_or_remove_favorite_song.dart';
 import 'package:spotify/service_locator.dart';
 
 class FavoriteButtonCubit extends Cubit<FavoriteButtonState> {
-  FavoriteButtonCubit() : super(FavoriteButtonInitial());
+  FavoriteButtonCubit(bool isFavorite)
+      : super(FavoriteButtonUpdated(isFavorite: isFavorite));
 
-  void favoriteButtonUpdate(String songId) async {
+  Future<void> favoriteButtonUpdate(String songId) async {
     var result = await sl<AddOrRemoveFavoriteSongUseCase>().call(
       params: songId,
     );

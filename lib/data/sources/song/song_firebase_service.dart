@@ -9,7 +9,7 @@ import 'package:spotify/service_locator.dart';
 abstract class SongFirebaseService {
   Future<Either> getNewsSongs();
   Future<Either> getPlayList();
-  Future<Either> addOrRemoveFavoriteSongs(String songId);
+  Future<Either> addOrRemoveFavoriteSong(String songId);
   Future<bool> isFavoriteSong(String songId);
 }
 
@@ -62,7 +62,7 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
   }
 
   @override
-  Future<Either> addOrRemoveFavoriteSongs(String songId) async {
+  Future<Either> addOrRemoveFavoriteSong(String songId) async {
     try {
       final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
       final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -79,9 +79,12 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
           .get();
 
       if (favoriteSongs.docs.isNotEmpty) {
+        print('Документ с songId $songId найден в коллекции Favorites.');
         await favoriteSongs.docs.first.reference.delete();
         isFavorite = false;
       } else {
+        print(
+            'Документ с songId $songId не найден в коллекции Favorites. Добавляем новый.');
         await firebaseFirestore
             .collection('Users')
             .doc(uId)
@@ -89,11 +92,12 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
             .add(
           {
             'songId': songId,
-            'adedDate': Timestamp.now(),
+            'addedDate': Timestamp.now(),
           },
         );
         isFavorite = true;
       }
+
       return Right(isFavorite);
     } catch (e) {
       return const Left('An error occurred');
@@ -106,11 +110,11 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
       final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
       final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
       var user = firebaseAuth.currentUser;
-      String uid = user!.uid;
+      String uId = user!.uid;
 
       QuerySnapshot favoriteSongs = await firebaseFirestore
           .collection('Users')
-          .doc(uid)
+          .doc(uId)
           .collection('Favorites')
           .where('songId', isEqualTo: songId)
           .get();

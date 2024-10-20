@@ -12,7 +12,7 @@ class FavoriteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FavoriteButtonCubit(),
+      create: (context) => FavoriteButtonCubit(songEntity.isFavorite),
       child: BlocBuilder<FavoriteButtonCubit, FavoriteButtonState>(
         builder: (context, state) {
           if (state is FavoriteButtonInitial) {
@@ -36,7 +36,7 @@ class FavoriteButton extends StatelessWidget {
                     .favoriteButtonUpdate(songEntity.songId);
               },
               icon: Icon(
-                state.isFavorite ? Icons.favorite : Icons.favorite_rounded,
+                state.isFavorite ? Icons.favorite : Icons.wallet_giftcard,
                 color: AppColors.darkGrey,
               ),
             );

@@ -38,14 +38,9 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
         password: createUserReq.password,
       );
 
-      FirebaseFirestore.instance.collection('Users').doc(data.user!.uid).set({
-        'email': createUserReq.email,
+      FirebaseFirestore.instance.collection('Users').doc(data.user?.uid).set({
         'name': createUserReq.fullName,
-      });
-
-      FirebaseFirestore.instance.collection('Users').add({
-        'email': createUserReq.email,
-        'name': createUserReq.fullName,
+        'email': data.user?.email,
       });
 
       return const Right('Signup successful');
